@@ -5,13 +5,19 @@ from flask_cors import CORS
 from helpers.MySQLDatabaseHandler import MySQLDatabaseHandler
 import pandas as pd
 
+# Load environment variables from .env file
+from dotenv import load_dotenv
+load_dotenv()
+
+secret_variable = os.getenv('SECRET_VARIABLE')
+print(f"Secret Variable: {secret_variable}")
+
 # ROOT_PATH for linking with all your files. 
 # Feel free to use a config.py or settings.py with a global export variable
 os.environ['ROOT_PATH'] = os.path.abspath(os.path.join("..",os.curdir))
 
 # Get the directory of the current script
 current_directory = os.path.dirname(os.path.abspath(__file__))
-# HI
 
 # Specify the path to the JSON file relative to the current script
 json_file_path = os.path.join(current_directory, 'init.json')
